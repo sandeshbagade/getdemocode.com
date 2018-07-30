@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+   
+      <style>
+          @media screen and (max-width: 768px)
+            {
+          #myCanvas {
+              position :relative;
+              border: none;
+              width:100%;
+              }   
+          }
+       
+      </style>
+      
+  </head>
+
+  <body>
+                    
+    <a href="index.php" style="text-decoration:none; color:blue;font-size:30px;"> Home</a>
+   
+      <canvas id="myCanvas" width="500" height="500">
+       please upgrade the browser !!!
+      </canvas>
+      
+      <script>
+          setInterval(Clock,1000);
+          function Clock()
+    {  
+    var can=document.getElementById("myCanvas");
+    var context=can.getContext("2d");
+     
+    var width= document.getElementById("myCanvas").width;
+    var height= document.getElementById("myCanvas").height;   
+    var cradius=width/2;      
+              context.fillStyle="black";
+          context.beginPath();
+         context.arc(cradius,cradius,cradius,0,2*Math.PI);
+          context.fill();
+           context.fillStyle = "white";
+           context.beginPath();
+                       context.font = cradius / 10 + "px arial";
+        context.textAlign="center";
+        
+          context.textBaseline="middle";
+          for(var i=1;i<13;i++)
+              {
+                   context.fillText(i,cradius+(0.9*cradius)*Math.sin(i*(2*Math.PI)/12),cradius-(0.9*cradius)*Math.cos(i*(2*Math.PI)/12));
+              }
+          var hr= new Date().getHours();
+          var min =new Date().getMinutes();
+          var sec =new Date().getSeconds();
+          var fullhr=hr%12+min/60+sec/3600;
+            var hoursAngle = fullhr * 2 * Math.PI / 12;
+            var secAngle=sec * 2 * Math.PI / 60;
+            var minAngle=min * 2 * Math.PI / 60;
+          
+          context.strokeStyle="white";
+          context.moveTo(cradius,cradius);
+          context.lineTo(cradius+(0.6*cradius)*Math.sin(hoursAngle),cradius-(0.6*cradius)*Math.cos(hoursAngle));
+          context.lineWidth=10;
+          context.stroke();
+          
+          
+           context.moveTo(cradius,cradius);
+          context.lineTo(cradius+(0.8*cradius)*Math.sin(minAngle),cradius-(0.8*cradius)*Math.cos(minAngle));
+          context.lineWidth=5;
+          context.stroke();
+          
+           context.moveTo(cradius,cradius);
+          context.lineTo(cradius+(0.9*cradius)*Math.sin(secAngle),cradius-(0.9*cradius)*Math.cos(secAngle));
+          context.lineWidth=3;
+          context.stroke();
+               
+            context.moveTo(cradius,cradius);
+             context.arc(cradius,cradius,10,0,2*Math.PI);
+            context.fill();
+       } 
+        
+          
+      </script>
+   
+  </body>
+</html>

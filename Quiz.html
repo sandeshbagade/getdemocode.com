@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <title>Document</title>
+    <style>
+      body
+      {
+        margin:0px;
+        padding:0px;
+      }
+           h1{
+          font-weight: 300;
+          margin: 0px;
+          padding: 10px;
+          font-size: 40px;
+          background-color: #444;
+          color: #fff;
+        }
+         a
+        {
+            margin: 10% 0px 0px 20px;
+            
+            
+            text-decoration: none;
+            font-weight: 500;
+        }
+          a:hover
+        {
+             color:coral;
+        }
+           #shape
+		{
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        }
+      main
+        {
+            width: 90%;
+            margin: 0px 5% 0px 5%;
+        }
+       #button
+        {
+             font-family: sans-serif;
+            font-size: 20px;
+            background-color: #279;
+            color: #fff;
+            border: 0px;
+            border-radius: 3px;
+            padding: 20px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        button:hover{
+            background-color: #38a;
+        }
+          footer
+            {
+                background-color: #444;
+                width: 100%;
+                height: 70px;
+                text-align: center;
+                color:white;
+            }
+    </style>
+</head>
+<body>
+        <h1 style="text-align: center;">Quiz</h1>
+          <a href="index.php">Home</a>
+<main>    
+      <h3 id="q1">Q. 1) The first Indian Satellite Aryabhatta was launched in</h3>
+
+        <form>
+          <input type="radio" class="q1" name="gender" value="1" > 1974<br>
+          <input type="radio"  class="q1" name="gender" value="2"> 1975<br>
+          <input type="radio"  class="q1" name="gender" value="3"> 1976<br>  
+          <input type="radio" class="q1" name="gender" value="4"> 1977<br>  
+        </form> 
+        
+        
+       <h3 id="q2">Q2. The only Indian cricketer of the country to feature in the top 10 of the ICC Player Ranking for ODIs on May 2017? </h3>
+        <form>
+          <input type="radio" class="q2" name="gender" value="1" > Virat Kohli <br>
+          <input type="radio"  class="q2" name="gender" value="2">  Amit Mishra <br>
+          <input type="radio"  class="q2" name="gender" value="3"> Shikhar Dhawan<br>  
+          <input type="radio" class="q2" name="gender" value="4"> Rohit Sharma<br>  
+        </form> 
+        
+          <h3 id="q3">
+
+Q3. After won the 13th gold medal in Rio Olympic 2016 by Michael Phelps, he has broken 12 individual gold medals records of
+
+</h3>
+
+        <form>
+          <input type="radio" class="q3" name="gender" value="1" > Duke Kahanamoku<br>
+          <input type="radio"  class="q3" name="gender" value="2"> Leonidas of Rhodes 
+
+<br>
+          <input type="radio"  class="q3" name="gender" value="3"> Larisa Latynina<br>  
+          <input type="radio" class="q3" name="gender" value="4">  Paavo Nurmi
+
+<br>  
+        </form> 
+        
+          <h3 id="q4">"Cue ball, break shot, pool table" are terms associated with which of the following games? 
+
+</h3>
+
+        <form>
+          <input type="radio" class="q4" name="gender" value="1" > Billiards<br>
+          <input type="radio"  class="q4" name="gender" value="2"> Squash<br>
+          <input type="radio"  class="q4" name="gender" value="3"> Golf<br>  
+          <input type="radio" class="q4" name="gender" value="4"> Cricket<br>  
+        </form> 
+        
+          <h3 id="q5">Which country led a boycott of the 1980 Olympic Games held in Moscow?
+ </h3>
+
+        <form>
+          <input type="radio" class="q5" name="gender" value="1" > Great Britain<br>
+          <input type="radio"  class="q5" name="gender" value="2"> China<br>
+          <input type="radio"  class="q5" name="gender" value="3"> USA <br>  
+          <input type="radio" class="q5" name="gender" value="4"> South Korea<br>  
+        </form> 
+        
+        
+        
+        
+        
+        
+        
+        <input id="button" type="button" onclick="result()" value="Submit">
+      
+</main>    
+  
+  <footer>
+                      <p>Bagade  </p>
+               <p>Copy Right &copy; 2018</p>
+</footer>
+<script>
+           var answer=["2","1","2","1","3"];
+             function result()
+    {
+        var c=0;
+             for (var k = 0; k < answer.length; k++)
+        {    
+                 var qaz="q".concat((k+1));
+            
+            var radios = document.getElementsByClassName(qaz);
+            var value;
+           
+            for (var i = 0; i < radios.length; i++)
+            {
+                if (radios[i].type === 'radio' && radios[i].checked) 
+                {
+                    // get value, set checked flag or do whatever you need to
+                    value = radios[i].value;
+                    if(value==answer[k])
+                        {
+                          document.getElementById(qaz).style.color="green";
+                           c++;
+                        }
+                    /*prompt(value);*/
+                    else
+                        {
+                             document.getElementById(qaz).style.color="red";
+                        }
+                }
+            }
+        }
+       alert(c+" are the correct answer");
+   }
+</script>
+</body>
+</html>
